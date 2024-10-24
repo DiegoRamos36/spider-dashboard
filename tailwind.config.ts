@@ -11,7 +11,8 @@ const config: Config = {
   content: [
     './src/*.{js,ts,jsx,tsx,mdx}',
     './src/components/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/tabs/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/tabs/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
@@ -40,6 +41,9 @@ const config: Config = {
       height: {
         max: '34rem',
         line: '1px',
+      },
+      maxHeight: {
+        table: '44rem',
       },
     },
     keyframes: {

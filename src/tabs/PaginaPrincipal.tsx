@@ -13,7 +13,7 @@ import {
 } from 'recharts';
 import { limparData } from '../functions/limparData';
 
-type Item = {
+export type Item = {
   desc: string;
   id: number;
   imgAlt: string;
@@ -22,9 +22,12 @@ type Item = {
   price: number;
 };
 
-type Pedido = {
+export type Pedido = {
   amount_total: number;
   created_at: string;
+  id: number;
+  sessionId: string;
+  payment_status: string;
 };
 
 type PedidoAgrupado = {

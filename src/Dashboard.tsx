@@ -8,7 +8,6 @@ import {
   ChartArea,
   DollarSign,
   Home,
-  LogOut,
   Truck,
   User,
   Wallet,
@@ -42,7 +41,7 @@ const Dashboard = React.memo(() => {
   return (
     <section className="flex font-text text-lg">
       <nav className="h-screen px-6 py-3 border-2 shadow-lg">
-        <p className="font-bold text-2xl text-gray-700 text-center">{name}</p>
+        <p className="font-bold text-2xl text-gray-700 text-center ">{name}</p>
         <p className="h-line w-full bg-gray-950 mt-2 rounded-full mb-6"></p>
 
         <h2 className="text-xl font-bold text-gray-700 mb-2">Visão geral</h2>
@@ -72,7 +71,7 @@ const Dashboard = React.memo(() => {
               area === Sections.CATALOGO_PRODUTOS
                 ? 'text-indigo-800'
                 : 'text-gray-700'
-            } flex gap-2 items-center cursor-pointer `}
+            } flex gap-2 items-center cursor-pointer text-wrap md:text-nowrap `}
             onClick={() => setArea(Sections.CATALOGO_PRODUTOS)}
           >
             <BoxesIcon className=" w-6 h-6 " />
@@ -181,17 +180,17 @@ const Dashboard = React.memo(() => {
       </nav>
 
       <section className="flex flex-col flex-grow py-3 px-6">
-        <div className="flex-grow">
-          <Areas tab={area} />
-        </div>
+        <Areas tab={area} />
 
-        <p
-          className="flex items-center gap-2  cursor-pointer border  px-2 py-1 rounded-lg shadow"
-          onClick={() => logout()}
-        >
-          <LogOut className="text-gray-700 w-6 h-6 " />
-          <p>Deslogar</p>
-        </p>
+        <span>
+          <button
+            className="border p-2 rounded ms-4 mt-4 bg-indigo-800 text-white "
+            onClick={() => logout()}
+          >
+            {' '}
+            Deslogar
+          </button>
+        </span>
       </section>
     </section>
   );

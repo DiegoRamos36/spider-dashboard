@@ -8,6 +8,14 @@ interface UserData {
   cargo: string;
 }
 
+export interface EmployeeData {
+  id: number;
+  username: string;
+  cargo: 'Administrador' | 'Funcionário';
+  nome: string;
+  endereco: string;
+}
+
 async function All() {
   try {
     const response = await fetch(`${apiUrl}/obter-todos-funcionarios`, {

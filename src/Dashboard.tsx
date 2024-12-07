@@ -1,17 +1,7 @@
 import React from 'react';
 import { cookie } from './api/cookie';
 import { jwtDecode } from 'jwt-decode';
-import {
-  Book,
-  Box,
-  BoxesIcon,
-  ChartArea,
-  DollarSign,
-  Home,
-  Truck,
-  User,
-  Wallet,
-} from 'lucide-react';
+import { Book, Box, BoxesIcon, Home, User, Wallet } from 'lucide-react';
 import { useLogged } from './hooks/useLogged';
 import Areas from './Areas';
 
@@ -28,8 +18,6 @@ enum Sections {
   ADM_PRODUTOS = 5,
   ADM_ESTOQUE = 6,
   ADM_FUNCIONARIOS = 7,
-  VENDAS_MENSAIS = 8,
-  MAISVENDAS = 9,
 }
 
 const Dashboard = React.memo(() => {
@@ -103,17 +91,7 @@ const Dashboard = React.memo(() => {
                   <Box className=" w-6 h-6" />
                   <a>Produtos</a>
                 </li>
-                <li
-                  className={`${
-                    area === Sections.ADM_ESTOQUE
-                      ? 'text-indigo-800'
-                      : 'text-gray-700'
-                  } flex gap-2 items-center cursor-pointer`}
-                  onClick={() => setArea(Sections.ADM_ESTOQUE)}
-                >
-                  <Truck className=" w-6 h-6" />
-                  <a>Estoque</a>
-                </li>
+
                 <li
                   className={`${
                     area === Sections.ADM_FUNCIONARIOS
@@ -143,40 +121,6 @@ const Dashboard = React.memo(() => {
             ''
           )}
         </ul>
-
-        {cargo === 'Administrador' || cargo === 'Gerente' ? (
-          <div className="mt-10 mb-2">
-            <h2 className="font-bold text-xl text-gray-700 mb-2 ">
-              Relatórios
-            </h2>
-            <ul className="flex flex-col gap-1">
-              <li
-                className={`${
-                  area === Sections.VENDAS_MENSAIS
-                    ? 'text-indigo-800'
-                    : 'text-gray-700'
-                } flex gap-2 items-center cursor-pointer`}
-                onClick={() => setArea(Sections.VENDAS_MENSAIS)}
-              >
-                <ChartArea className="text-gray-700 w-6 h-6" />
-                <a>Vendas Mensais</a>
-              </li>
-              <li
-                className={`${
-                  area === Sections.MAISVENDAS
-                    ? 'text-indigo-800'
-                    : 'text-gray-700'
-                } flex gap-2 items-center cursor-pointer`}
-                onClick={() => setArea(Sections.MAISVENDAS)}
-              >
-                <DollarSign className="text-gray-700 w-6 h-6" />
-                <a>Mais vendidos</a>
-              </li>
-            </ul>
-          </div>
-        ) : (
-          ''
-        )}
       </nav>
 
       <section className="flex flex-col flex-grow py-3 px-6">

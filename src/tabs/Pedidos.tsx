@@ -3,6 +3,7 @@ import React from 'react';
 import { Item } from './PaginaPrincipal';
 import { inverterData } from '../functions/inverterData';
 import { limparData } from '../functions/limparData';
+import Loading from '../components/Loading';
 
 type InformacaoDoPedido = {
   amountTotal: number;
@@ -45,13 +46,16 @@ const Pedidos = () => {
     }
     getYesterday();
   }, []);
+
+  console.log(pedidosHoje);
   return (
     <div>
       <h4>Hoje</h4>
       <p></p>
-      <ul>
-        {pedidosHoje &&
-          pedidosHoje.map((pedido) => (
+
+      {pedidosHoje ? (
+        <ul>
+          {pedidosHoje.map((pedido) => (
             <li
               key={pedido.id}
               className="flex flex-col  border-2 shadow-lg  p-4  rounded-lg justify-between"
@@ -90,13 +94,16 @@ const Pedidos = () => {
               </div>
             </li>
           ))}
-      </ul>
+        </ul>
+      ) : (
+        <Loading />
+      )}
 
       <h4>Ontem</h4>
       <p></p>
-      <ul>
-        {pedidosOntem &&
-          pedidosOntem.map((pedido) => (
+      {pedidosOntem ? (
+        <ul>
+          {pedidosOntem.map((pedido) => (
             <li
               key={pedido.id}
               className="flex flex-col  border-2 shadow-lg  p-4  rounded-lg justify-between"
@@ -135,7 +142,10 @@ const Pedidos = () => {
               </div>
             </li>
           ))}
-      </ul>
+        </ul>
+      ) : (
+        <Loading />
+      )}
     </div>
   );
 };

@@ -13,6 +13,7 @@ const config: Config = {
     './src/components/*.{js,ts,jsx,tsx,mdx}',
     './src/tabs/**/*.{js,ts,jsx,tsx,mdx}',
     './src/tabs/*.{js,ts,jsx,tsx,mdx}',
+    './src/tabs/adm/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {

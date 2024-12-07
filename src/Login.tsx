@@ -19,8 +19,12 @@ const Login = () => {
     event.preventDefault();
     if (!username || !password) return fail('Usuário ou senha incorreto!');
     const data = await Employee.Auth(username, password);
-    if (typeof data === 'string') cookie.setAuthTokenCookie(data, 7);
+
+    if (data.error) return fail('Usuário ou senha incorreto!');
     login();
+
+    if (typeof data === 'string') cookie.setAuthTokenCookie(data, 365);
+
     success('Usuário autenticado com sucesso!');
     setTimeout(() => {
       navigate('/');

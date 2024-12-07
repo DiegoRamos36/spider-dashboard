@@ -94,8 +94,11 @@ async function ByName(name: string) {
 
 async function Delete(id: string) {
   try {
-    const response = await fetch(`${apiUrl}/cardapio/${id}`, {
+    const response = await fetch(`${apiUrl}/delete-item`, {
       method: 'DELETE',
+      body: JSON.stringify({
+        id,
+      }),
     });
 
     if (!response.ok) {
@@ -114,4 +117,31 @@ async function Delete(id: string) {
   }
 }
 
-export const Item = { New, All, ByName, Delete };
+async function Edit(id: string, name: string, price: number, desc: string) {
+  if (!id || Number(id) <= 0) throw new Error('Insira o id do item!1');
+  try {
+    const response = await fetch(`${apiUrl}/edit-item`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        id: id,
+        name: name,
+        price: price,
+        desc: desc,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return `${error instanceof Error ? error.message : 'Erro Desconhecido!'}`;
+  }
+}
+
+export const Item = { New, All, ByName, Delete, Edit };

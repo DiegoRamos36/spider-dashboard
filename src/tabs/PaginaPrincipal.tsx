@@ -12,6 +12,7 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import { limparData } from '../functions/limparData';
+import Loading from '../components/Loading';
 
 export type Item = {
   desc: string;
@@ -87,21 +88,23 @@ const PaginaPrincipal = () => {
       </h2>
       <p className="h-line border w-full mt-2 mb-4"></p>
 
-      <ul className="flex gap-4 mb-4">
-        {products
-          ? products.map((product) => (
-              <li key={product.id}>
-                <img
-                  src={product.imgSrc}
-                  alt={product.imgAlt}
-                  width={100}
-                  height={100}
-                />
-                <p>{product.name}</p>
-              </li>
-            ))
-          : ''}
-      </ul>
+      {products ? (
+        <ul className="flex gap-4 mb-4">
+          {products.map((product) => (
+            <li key={product.id}>
+              <img
+                src={product.imgSrc}
+                alt={product.imgAlt}
+                width={100}
+                height={100}
+              />
+              <p>{product.name}</p>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <Loading />
+      )}
 
       <h2 className="font-bold text-gray-600 text-2xl">Hoje</h2>
       <p className="h-line border w-full mt-2 mb-4"></p>

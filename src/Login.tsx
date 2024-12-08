@@ -20,7 +20,9 @@ const Login = () => {
     if (!username || !password) return fail('Usuário ou senha incorreto!');
     const data = await Employee.Auth(username, password);
 
-    if (data.error) return fail('Usuário ou senha incorreto!');
+    if (typeof data === 'object' && 'error' in data) {
+      return fail(data.error || 'Usuário ou senha incorreto!');
+    }
     login();
 
     if (typeof data === 'string') cookie.setAuthTokenCookie(data, 365);

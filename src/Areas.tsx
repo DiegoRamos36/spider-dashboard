@@ -1,7 +1,6 @@
 import React from 'react';
 import Transacoes from './tabs/Transacoes';
 import Catalogo from './tabs/Catalogo';
-import Pedidos from './tabs/Pedidos';
 import Produtos from './tabs/adm/Produtos';
 import Funcionarios from './tabs/adm/Funcionarios';
 import PaginaPrincipal from './tabs/PaginaPrincipal';
@@ -15,7 +14,7 @@ const Areas = React.memo(({ tab }: { tab: number }) => {
     case 3:
       return <Catalogo />;
     case 4:
-      return <Pedidos />;
+      return null;
     case 5:
       return <Produtos />;
     case 7:

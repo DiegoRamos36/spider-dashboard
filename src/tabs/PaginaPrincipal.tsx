@@ -79,8 +79,6 @@ const PaginaPrincipal = () => {
 
   const pedidosAgrupados = Object.values(agruparPorData(order));
 
-  console.log(pedidosAgrupados);
-
   return (
     <section className="w-11/12 mx-auto">
       <h2 className="font-bold text-gray-600 text-2xl">

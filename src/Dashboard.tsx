@@ -45,15 +45,7 @@ const Dashboard = React.memo(() => {
             <Home className="w-6 h-6 " />
             <a>Página Inicial</a>
           </li>
-          <li
-            className={`${
-              area === Sections.TRANSACOES ? 'text-indigo-800' : 'text-gray-700'
-            } flex gap-2 items-center cursor-pointer`}
-            onClick={() => setArea(Sections.TRANSACOES)}
-          >
-            <Wallet className="w-6 h-6 " />
-            <a>Transações</a>
-          </li>
+
           <li
             className={`${
               area === Sections.CATALOGO_PRODUTOS
@@ -67,9 +59,8 @@ const Dashboard = React.memo(() => {
           </li>
           <li
             className={`${
-              area === Sections.PEDIDOS ? 'text-indigo-800' : 'text-gray-700'
+              area === Sections.PEDIDOS ? 'text-indigo-800' : 'text-gray-400'
             } flex gap-2 items-center cursor-pointer`}
-            onClick={() => setArea(Sections.PEDIDOS)}
           >
             <Book className=" w-6 h-6 " />
             <a>Pedidos</a>
@@ -90,6 +81,18 @@ const Dashboard = React.memo(() => {
                 >
                   <Box className=" w-6 h-6" />
                   <a>Produtos</a>
+                </li>
+
+                <li
+                  className={`${
+                    area === Sections.TRANSACOES
+                      ? 'text-indigo-800'
+                      : 'text-gray-700'
+                  } flex gap-2 items-center cursor-pointer`}
+                  onClick={() => setArea(Sections.TRANSACOES)}
+                >
+                  <Wallet className="w-6 h-6 " />
+                  <a>Transações</a>
                 </li>
 
                 <li
